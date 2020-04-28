@@ -3,11 +3,8 @@
 __all__ = ['make_cartesian_product']
 
 # Cell
-def make_cartesian_product(S1, S2):
-    """Given the sets S1 and S2, make and return the cartesian product S1 x S2"""
-    cartesian_product = []
-    for item_x in list(S1):
-        for item_y in list(S2):
-            cartesian_product.append((item_x, item_y))
-    cartesian_product.sort()
-    return cartesian_product
+from typing import Iterable, Any, List
+from itertools import product
+
+def make_cartesian_product(S1: Iterable[Any], S2: Iterable[Any]) -> List:
+    return list(product(S1, S2))
